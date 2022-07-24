@@ -1,4 +1,5 @@
 :root {
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --primary-font: 'Roboto', sans-serif;
     --brand-color: #2196F3;
     --main-text-color: #212121;
