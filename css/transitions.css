@@ -16,9 +16,10 @@ body {
 .funny-button {
     position: relative;
     display: inline-flex;
-    padding: 12px 40px;
+    padding: 12px 30px;
     font-size: 27px;
-    background-color: rgb(250, 100, 100);
+    color: white;
+    background-color: rgb(133, 116, 230);
     border-radius: 30px;
     border-width: 0;
     cursor: pointer;
@@ -30,14 +31,14 @@ body {
 
 .funny-button:hover,
 .funny-button:focus {
-    background-color: orange;
+    background-color: rgb(250, 100, 100);
 }
 
 .funny-button::before,
 .funny-button::after {
     content: '';
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 10px;
     width: 32px;
     height: 32px;
 
@@ -46,7 +47,7 @@ body {
 }
 
 .funny-button::before {
-    background-image: url(../images/funny-button/cat.png);
+    background-image: url(../images/funny-button/butterfly.png);
 
     transition: transform 250ms var(--timing-function);
 }
@@ -54,10 +55,10 @@ body {
 .funny-button::after {
     position: absolute;
     top: 50%;
-    left: 40px;
+    left: 30px;
     margin-right: 20px;
 
-    background-image: url(../images/funny-button/butterfly.png);
+    background-image: url(../images/funny-button/cat.png);
 
     transform: translateY(calc(-50% + 55px));
 
