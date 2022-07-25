@@ -158,10 +158,10 @@ img {
 
 .current-link::after {
     content: "";
-    display: block;
     position: absolute;
     left: 0;
     bottom: -1px;
+    display: block;
     width: 100%;
     height: 4px;
     border-radius: 2px;
@@ -284,6 +284,8 @@ img {
 .backdrop.is-hidden {
     opacity: 0;
     pointer-events: none;
+    /* Уточнити, навіщо тут потрібен visibility */
+    visibility: hidden;
 }
 
 .backdrop.is-hidden .modal {
@@ -547,7 +549,7 @@ img {
     fill: var(--passive-icon-color);
 
     transition: background-color 250ms var(--timing-function),
-    fill 250ms var(--timing-function);
+                fill 250ms var(--timing-function);
 }
 
 .team-social-link:hover,
@@ -563,11 +565,9 @@ img {
 .client-list {
     display: flex;
     /* flex-wrap: wrap; */
-
 }
 
 .client-item {
-    /* margin-right: 30px; */
     width: calc((100% - 150px) / 6);
     height: 92px;
     border-radius: 4px;
@@ -604,11 +604,6 @@ img {
     border-color: var(--brand-color);
     fill: var(--brand-color);
 }
-/* 
-.client-logo {
-    width: 106px;
-    height: 60px;
-} */
 
 /* =========== / CLIENTS =========== */
 
@@ -706,10 +701,10 @@ img {
     display: block;
     width: 100%;
     height: 100%;
-    color: var(--global-white-color);
-    background-color: rgba(33, 150, 243, 0.9);
     padding: 63px 24px;
 
+    color: var(--global-white-color);
+    background-color: rgba(33, 150, 243, 0.9);
     font-size: 18px;
     line-height: 1.56;
     letter-spacing: 0.03em;
@@ -726,7 +721,6 @@ img {
 
 .project-title {
     margin-bottom: 4px;
-
     color: var(--main-text-color);
     font-weight: 700;
     font-size: 18px;
