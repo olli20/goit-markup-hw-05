@@ -286,7 +286,7 @@ img {
     pointer-events: none;
     /* Уточнити, навіщо тут потрібен visibility */
     visibility: hidden;
-}
+} 
 
 .backdrop.is-hidden .modal {
     transform: translateX(-50%) translateY(-50%) scale(1.05);
