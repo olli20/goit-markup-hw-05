@@ -263,6 +263,59 @@ img {
 .hero-button:focus {
     background-color: var(--button-hover-color)
 }
+
+/* MODAL */
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+ /* bottom: 0;
+    right: 0; */
+
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.backdrop.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    min-height: 581px;
+    min-width: 528px;
+    background-color: var(--white);
+}
+
+.button-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.close-icon {
+    fill: var(--main-text-color);
+}
+
 /* ------- / HERO ------- */
 
 /* ------- BENEFITS ------- */
@@ -555,7 +608,6 @@ img {
 
     color: var(--main-text);
     background-color: var(--light-background-color);
-    /* font-family: inherit; */
     font-weight: 500;
     font-size: 16px;
     line-height: 1.63;
@@ -622,7 +674,6 @@ img {
 
 .gallery-item-text {
     padding: 20px 24px;
-
     border-left: 1px solid #EEEEEE;
     border-bottom: 1px solid #EEEEEE;
     border-right: 1px solid #EEEEEE;
@@ -766,4 +817,6 @@ img {
     width: 20px;
     height: 20px;
 } */
+
 /* ------- / FOOTER ------- */
+
