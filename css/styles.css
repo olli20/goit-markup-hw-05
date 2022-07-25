@@ -550,11 +550,6 @@ img {
     fill 250ms var(--timing-function);
 }
 
-/* .team-social-icon {
-    width: 20px;
-    height: 20px;
-} */
-
 .team-social-link:hover,
 .team-social-link:focus {
     fill: var(--global-white-color);
@@ -688,8 +683,8 @@ img {
 .gallery-item:hover,
 .gallery-item:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
-    0px 4px 4px rgba(0, 0, 0, 0.06), 
-    1px 4px 6px rgba(0, 0, 0, 0.16);
+                0px 4px 4px rgba(0, 0, 0, 0.06), 
+                1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .gallery-item-text {
