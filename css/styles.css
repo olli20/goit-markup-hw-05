@@ -8,8 +8,8 @@
     --dark-background-color: #2F303A;
     --light-background-color: #F5F4FA;
     --button-hover-color: #188CE8;
-    --black: #000000;
-    --white: #FFFFFF;
+    --global-black-color: #000000;
+    --global-white-color: #FFFFFF;
 }
 
 /* * {
@@ -18,7 +18,7 @@
 
 body {
     font-family: var(--primary-font);
-    background-color: var(--white);
+    background-color: var(--global-white-color);
     color: var(--main-text-color);  
 }
 
@@ -45,7 +45,7 @@ img {
     text-decoration: none;
 }
 
-/* ------- COMPONENTS ------- */
+/* =========== COMPONENTS =========== */
 .container {
     margin: 0 auto;
     width: 1200px;
@@ -92,9 +92,9 @@ img {
     letter-spacing: 0.03em;
     text-align: center;
 }
-/* ------- / COMPONENTS ------- */
+/* =========== / COMPONENTS =========== */
 
-/* ------- NAVIGATION ------- */
+/* =========== NAVIGATION =========== */
 .page-header {
     border-bottom: 1px solid #ECECEC;
 }
@@ -115,7 +115,7 @@ img {
 }
 
 .logo-header-secondcolor {
-    color: var(--black);
+    color: var(--global-black-color);
 }
 
 .menu {
@@ -131,9 +131,6 @@ img {
 .contact .item +.item {
     margin-left: 50px;
 } */
-
-.menu-item {
-}
 
 .menu-link {
     display: block;
@@ -206,9 +203,9 @@ img {
     color: var(--brand-color);
     fill: var(--brand-color);
 }
-/* ------- / NAVIGATION ------- */
+/* =========== / NAVIGATION =========== */
 
-/* ------- HERO ------- */
+/* =========== HERO =========== */
 .hero {
     max-width: 1600px;
     max-height: 600px;
@@ -225,7 +222,7 @@ img {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    color: var(--white);
+    color: var(--global-white-color);
     text-align: center; 
 }
 
@@ -245,7 +242,7 @@ img {
     margin: 0;
 
     background-color: var(--brand-color);
-    color: var(--white);
+    color: var(--global-white-color);
     font-weight: 700;
     font-size: 16px;
     line-height: 1.86;
@@ -264,7 +261,7 @@ img {
     background-color: var(--button-hover-color)
 }
 
-/* MODAL */
+/* =========== MODAL =========== */
 
 .backdrop {
     position: fixed;
@@ -273,9 +270,15 @@ img {
  /* bottom: 0;
     right: 0; */
 
+    z-index: 5;
+
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
+
+    opacity: 1;
+
+    transition: opacity 250ms var(--timing-function);
 }
 
 .backdrop.is-hidden {
@@ -283,15 +286,21 @@ img {
     pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+    transform: translateX(-50%) translateY(-50%) scale(1.05);
+}
+
 .modal {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%) scale(1);
 
     min-height: 581px;
     min-width: 528px;
-    background-color: var(--white);
+    background-color: var(--global-white-color);
+
+    transition: transform 250ms var(--timing-function);
 }
 
 .button-close {
@@ -308,17 +317,28 @@ img {
 
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 15px;
-    background-color: var(--white);
+    background-color: var(--global-white-color);
     cursor: pointer;
 }
 
 .close-icon {
-    fill: var(--main-text-color);
+    fill: var(--global-black-color);
+
+    transition: fill 250ms var(--timing-function);
 }
 
-/* ------- / HERO ------- */
+.button-close:hover .close-icon,
+.button-close:focus .close-icon {
+    fill: var(--brand-color);
+}
 
-/* ------- BENEFITS ------- */
+/* =========== / MODAL =========== */
+
+/* =========== / HERO =========== */
+
+
+
+/* =========== BENEFITS =========== */
 .benefits {
     padding-bottom: 0;
 }
@@ -340,13 +360,13 @@ img {
     margin-right: 30px;
 } */
 
-.benefits-icon-box {
+.benefits-icon-wrap {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 120px;
     margin-bottom: 30px;
-    background-color: #F5F4FA;
+    background-color: var(--light-background-color);
     border-radius: 4px;
 }
 
@@ -408,9 +428,9 @@ img {
     line-height: 1.7;
     letter-spacing: 0.03em;
 }
-/* ------- / BENEFITS ------- */
+/* =========== / BENEFITS =========== */
 
-/* ------- WHAT DO WE DO ------- */
+/* =========== WHAT DO WE DO =========== */
 .work-list {
     display: flex;
     /* flex-wrap: wrap; */
@@ -440,7 +460,7 @@ img {
 
     background-color: rgba(47, 48, 58, 0.8);
 
-    color: var(--white);
+    color: var(--global-white-color);
     font-weight: 700;
     font-size: 14px;
     line-height: 1.14;
@@ -449,9 +469,9 @@ img {
     text-transform: uppercase;
 }
 
-/* ------- / WHAT DO WE DO ------- */
+/* =========== / WHAT DO WE DO =========== */
 
-/* ------- TEAM ------- */
+/* =========== TEAM =========== */
 .team {
     background-color: var(--light-background-color);
 }
@@ -463,13 +483,15 @@ img {
 
 .team-item {
     width: calc((100% - 90px) / 4);
-    background-color: var(--white);
+    background-color: var(--global-white-color);
 
     text-align: center;
 
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
+                0px 1px 1px rgba(0, 0, 0, 0.14), 
+                0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .team-item:not(:last-child) {
@@ -535,18 +557,17 @@ img {
 
 .team-social-link:hover,
 .team-social-link:focus {
-    fill: var(--white);
+    fill: var(--global-white-color);
     background-color: var(--brand-color);
 }
 
-/* ------- / TEAM ------- */
+/* =========== / TEAM ===========------- */
 
-
-/* -------- CLIENTS -------- */
+/* =========== CLIENTS =========== */
 
 .client-list {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
 
 }
 
@@ -594,13 +615,17 @@ img {
     height: 60px;
 } */
 
-/* -------- / CLIENTS -------- */
+/* =========== / CLIENTS =========== */
 
-/* ------- PORTFOLIO ------- */
+/* =========== PORTFOLIO =========== */
 .gallery-filter {
     display: flex;
     justify-content: center;
     margin-bottom: 50px;
+}
+
+.filter-item:not(:last-child) {
+    margin-right: 8px;
 }
 
 .filter-button {
@@ -619,17 +644,13 @@ img {
     cursor: pointer;
 
     transition: color 250ms var(--timing-function),
-    background-color 250ms var(--timing-function),
-    box-shadow 250ms var(--timing-function);
-}
-
-.filter-item:not(:last-child) {
-    margin-right: 8px;
+                background-color 250ms var(--timing-function),
+                box-shadow 250ms var(--timing-function);
 }
 
 .filter-button:hover,
 .filter-button:focus {
-    color: var(--white);
+    color: var(--global-white-color);
     background-color: var(--brand-color);
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1),
                 0px 1px 2px rgba(0, 0, 0, 0.08),
@@ -637,11 +658,9 @@ img {
 }
 
 .gallery-filter .current {
-    color: var(--white);
+    color: var(--global-white-color);
     background-color: var(--brand-color);
 }
-
-
 
 .gallery {
     display: flex;
@@ -666,7 +685,8 @@ img {
     margin-bottom: 30px;
 }
 
-.gallery-item:hover {
+.gallery-item:hover,
+.gallery-item:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 
     0px 4px 4px rgba(0, 0, 0, 0.06), 
     1px 4px 6px rgba(0, 0, 0, 0.16);
@@ -679,19 +699,19 @@ img {
     border-right: 1px solid #EEEEEE;
 }
 
-.gallery-thumb {
+.gallery-thumb-wrap {
     position: relative;
     overflow: hidden;
 }
 
-.thumb-text {
+.gallery-thumb-text {
     position: absolute;
     left: 0;
     bottom: 0;
     display: block;
     width: 100%;
     height: 100%;
-    color: var(--white);
+    color: var(--global-white-color);
     background-color: rgba(33, 150, 243, 0.9);
     padding: 63px 24px;
 
@@ -702,10 +722,10 @@ img {
     transform: translateY(101%);
 
     transition: transform 250ms var(--timing-function);
-
 }
 
-.gallery-item:hover .thumb-text {
+.gallery-item:hover .gallery-thumb-text,
+.gallery-item:focus .gallery-thumb-text {
     transform: translateY(0%);
 }
 
@@ -725,9 +745,9 @@ img {
     letter-spacing: 0.03em;
     color: var(--addition-text-color);
 }
-/* ------- / PORTFOLIO ------- */
+/* =========== / PORTFOLIO =========== */
 
-/* ------- FOOTER ------- */
+/* =========== FOOTER =========== */
 .footer {
     padding: 60px 0px;
     background-color: var(--dark-background-color);
@@ -743,7 +763,7 @@ img {
 }
 
 .logo-footer-secondcolor {
-    color: var(--white);
+    color: var(--global-white-color);
 }
 
 .address {
@@ -764,13 +784,13 @@ img {
 }
 
 .address .kyiv-address {
-    color: var(--white);
+    color: var(--global-white-color);
 }
 
 .media-title {
     margin-bottom: 20px;
 
-    color: var(--white);
+    color: var(--global-white-color);
     font-weight: 700;
     font-size: 14px;
     line-height: 16px;
@@ -802,7 +822,7 @@ img {
     justify-content: center;
     width: 100%;
     height: 100%;
-    fill: var(--white);
+    fill: var(--global-white-color);
     border-radius: 50%;
 
     transition: background-color 250ms var(--timing-function);
@@ -813,10 +833,5 @@ img {
     background-color: var(--brand-color);
 }
 
-/* .media-icon {
-    width: 20px;
-    height: 20px;
-} */
-
-/* ------- / FOOTER ------- */
+/* =========== / FOOTER =========== */
 
